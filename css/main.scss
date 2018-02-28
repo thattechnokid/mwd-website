@@ -1,0 +1,161 @@
+// -------- INDEX.html --------
+
+$mendoza-font: "'Montserrat', sans-serif";
+
+.monsterrat{
+  font-family: #{$mendoza-font};
+}
+.hidden{
+  display: none;
+}
+.visible{
+  display: block;
+}
+.right-overlay, .left-overlay{
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  background-color: #222222;
+  height: 100vh;
+}
+.right-overlay{
+  position: fixed;
+  right: 0;
+}
+.left-overlay{
+  position: fixed;
+  left: 0;
+}
+.pre-loader{
+  z-index: 1001;
+  position: relative;
+  top:0;
+  height: 100vh;
+  width: 100%;
+
+  .spinner-icon{
+    height: 200px;
+    width: 200px;
+    position: fixed;
+    left: 49.9%;
+    top: 50.3%;
+    i{
+      position: relative;
+      /* transform: translate(-50%, -50%); */
+      font-size: 200px;
+      left: -49.9%;
+      top:-50.3%;
+      color: white;
+      -webkit-text-stroke: 19px #222222;
+    }
+  }
+
+}
+
+// ======= Classes for page load ======
+.loaded{
+  .spinner-icon{
+    animation: spinnerFade 2.0s;
+    animation-fill-mode: forwards;
+  }
+  .left-overlay{
+    animation: slideLeft 1.0s;
+    animation-delay: 2.0s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+  .right-overlay{
+    animation: slideRight 1.0s;
+    animation-delay: 2.0s;    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+  .logo{
+    animation: logoPosition 1.5s;
+    animation-delay: 2.0s;    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+
+
+  // .col-xs-12.pre-loader{
+  //   opacity: 0;//    \/-Duration
+  //   transition: all 0.3s ease-out;
+  // }
+  // .col-xs-6.left-overlay{
+  //   transform: translateX(-100%);
+  //   //     duration--\/   \/--Delay
+  //   transition: all 0.3s 0.3s ease-out;
+  // }
+  // .col-xs-6.right-overlay{
+  //   transform: translateX(100%);
+  //   transition: all 0.3s 0.3s ease-out;
+  // }
+  //
+  // .loader-wrapper{
+  //   display: none;
+  // }
+}
+.splash{
+  width:100vw;
+  height: 100vh;
+  background-image: url(../images/splash.jpg);
+  background-size: cover;
+  filter: blur(2px);
+}
+.logo-cont{
+  z-index: 1002;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  height: 250px;
+  width: 250px;
+  left: 50%;
+  top: 50%;
+  padding: 0px;
+  .logo{
+    z-index: 1002;
+    height: 250px;
+    width: 250px;
+  }
+  h1{
+    transform: translate(20px,-440px);
+    font-weight: bold;
+    // -webkit-text-stroke: 0.1px #205ca3;
+    color:#205ca3;
+  }
+}
+.typed-cursor{
+  display: none;
+}
+
+// ====== Animations =======
+@keyframes spinnerFade {
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes slideLeft {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+@keyframes slideRight {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+@keyframes logoPosition{
+  0%{
+    z-index: 1 ;
+  }
+  100%{
+        transform: translate(-137px,-278px) scale(0.4);
+  }
+}
